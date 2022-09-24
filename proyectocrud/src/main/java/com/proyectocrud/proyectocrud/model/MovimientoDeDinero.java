@@ -19,5 +19,15 @@ public class MovimientoDeDinero {
 
     private double monto;
     private String concepto;
-    private String encargado;
+    //private String encargado;
+
+    //Muchas transacciones son de un empleado
+    @ManyToOne
+    @JoinColumn(name="empleado_id")
+    private Empleado empleado;
+
+    //Muchas transacciones las hace una empresa
+    @ManyToOne
+    @JoinColumn(name="empresa_id")
+    private  Empresa empresa;
 }
