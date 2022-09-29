@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Empresas</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center" >Sistema de Gestion de Ingresos y Gastos</h1>
+        <h2>Empresas</h2>
+
+        <p class="text-primary">Esta es la pagina para ver la informacion de las empresas guardadas</p>
+        
+        <table class="table table-striped">
+            <tr>
+                <th>Nombre</th>
+                <th>Nit</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr th:each="empresa : ${empresas}">
+                <td th:text="${empresa.nombre}"></td>
+                <td th:text="${empresa.nit}"></td>
+                <td th:text="${empresa.telefono}"></td>
+                <td th:text="${empresa.direccion}"></td>
+                <td><a class="btn btn-primary" th:href="@{/empresa/editar/{id} (id=${empresa.id})}">Editar</a></td>
+                <!-- <td><a th:href="@{/empresa/editar/{id} (id=${empresa.id})}">Editar</a></td> -->
+                <!-- <td><a th:href="@{/empresaclass="btn btn-danger"/borrar/{id} (id=${empresa.id})}">Eliminar</a></td> -->
+                <td><a class="btn btn-danger"  th:href="@{/empresa/borrar/{id} (id=${empresa.id})}">Eliminar</a></td>
+                
+            </tr>
+        </table>
+        <a class="btn btn-primary" href="/crearempresa">Nueva Empresa</a><!--a es para redireccionar a otra pagina-->
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+
+</html>

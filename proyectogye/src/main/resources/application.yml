@@ -1,0 +1,17 @@
+# src/main/resources/application.yml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: KtVu7sU9nPDbB4dhDhUFt7kWJmUKLM5F
+            client-secret: 7L1FuqKtGzXA4zSpWzmwsr-3xonOBPSawDEq9eNHWOAnrdiUY_5PlmaYP3GmU2AG
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://cdhdz.us.auth0.com/
